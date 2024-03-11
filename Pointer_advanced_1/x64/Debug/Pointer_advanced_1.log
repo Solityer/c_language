@@ -1,0 +1,4 @@
+﻿  main.c
+D:\c_code_gitee\c_language\Pointer_advanced_1\main.c(119,11): warning C4133: “函数”: 从“char [3][5]”到“int (*)[5]”的类型不兼容
+D:\c_code_gitee\c_language\Pointer_advanced_1\main.c(120,11): warning C4133: “函数”: 从“char [3][5]”到“int (*)[5]”的类型不兼容
+  Pointer_advanced_1.vcxproj -> D:\c_code_gitee\c_language\Pointer_advanced_1\x64\Debug\Pointer_advanced_1.exe

@@ -1,0 +1,6 @@
+﻿  Pointer_advanced_2.cpp
+D:\c_code_gitee\c_language\Pointer_advanced_2\Pointer_advanced_2.cpp(13,6): warning C4273: “qsort”: dll 链接不一致
+  D:\Windows Kits\10\Include\10.0.22621.0\ucrt\corecrt_search.h(60,23):
+  参见“qsort”的前一个定义
+  
+  Pointer_advanced_2.vcxproj -> D:\c_code_gitee\c_language\Pointer_advanced_2\x64\Debug\Pointer_advanced_2.exe

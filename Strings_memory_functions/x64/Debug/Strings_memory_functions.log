@@ -1,0 +1,6 @@
+﻿  main.c
+D:\c_code_gitee\c_language\Strings_memory_functions\main.c(31,9): warning C4477: “printf”: 格式字符串“%u”需要类型“unsigned int”的参数，但可变参数 1 拥有了类型“size_t”
+  D:\c_code_gitee\c_language\Strings_memory_functions\main.c(31,9):
+  请考虑在格式字符串中使用“%zu”
+  
+  Strings_memory_functions.vcxproj -> D:\c_code_gitee\c_language\Strings_memory_functions\x64\Debug\Strings_memory_functions.exe
