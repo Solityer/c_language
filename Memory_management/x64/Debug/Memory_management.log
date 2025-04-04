@@ -1,3 +1,0 @@
-﻿  main.c
-D:\c_code_gitee\c_language\Memory_management\main.c(108): warning C4172: 返回局部变量或临时变量的地址: p
-  Memory_management.vcxproj -> D:\c_code_gitee\c_language\Memory_management\x64\Debug\Memory_management.exe

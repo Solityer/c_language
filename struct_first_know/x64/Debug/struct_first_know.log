@@ -1,3 +1,0 @@
-﻿  main.c
-D:\c_code_gitee\c_language\struct_first_know\main.c(59,18): warning C4101: “s1”: 未引用的局部变量
-  struct_first_know.vcxproj -> D:\c_code_gitee\c_language\struct_first_know\x64\Debug\struct_first_know.exe
