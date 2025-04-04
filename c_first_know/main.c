@@ -3,11 +3,10 @@
 #define CH 'w'
 #include "add.h"
 
-//
 //库函数:c语言的编译器的现成函数,直接可以使用
 //scanf的作用是输入函数,数据从键盘读取到内存中
 //printf的作用是输出数据,数据从内存中输出到屏幕上
-//
+
 int a = 2024;
 extern int g_val;
 void test();
