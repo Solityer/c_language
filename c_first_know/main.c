@@ -9,7 +9,12 @@
 
 int a = 2024;
 extern int g_val;
-void test();
+
+void test()
+{
+    printf("2---> %d\n", a);
+}
+
 enum SEX
 {
     //注：枚举常量的默认是从0开始，依次向下递增1的
@@ -17,7 +22,9 @@ enum SEX
     FEMALE,
     SECRET
 };
-int main() {
+
+int main() 
+{
     char ch;
     scanf("%c", &ch);
     printf("%c\n", ch);
@@ -25,8 +32,6 @@ int main() {
     printf("1---> %d\n", a);
     test();
     printf("g_val = %d\n", g_val);
-
-
 
     //常量
     /*字面常量
@@ -43,8 +48,6 @@ int main() {
     printf("%d\n", MALE); //0
     printf("%d\n", FEMALE); //1
     printf("%d\n", SECRET); //2
-
-
 
 
     //字符串
@@ -71,10 +74,28 @@ int main() {
     printf("%c\n", '\130'); //八进制的130转换为十进制后得到88,把88作为ASCII值代码的字符输出
     // \xdd中dd表示2个十六进制数字
     printf("%c\n", '\x31');
-    return 0;
-}
 
-void test()
-{
-    printf("2---> %d\n", a);
+    //数组
+    /*一维数组*/
+    int n = 0;
+    scanf("%d",&n);
+    int arr5[n];  //局部的变量,这些局部的变量或者数组存放在栈区,存放在栈区的数组如果不初始化,默认是随机值
+    for (int i = 0; i < n; ++i)
+    {
+        arr5[i] = i;
+    }
+    for (int i = 0; i < n; ++i)
+    {
+        printf("%d\t",arr5[i]);
+    }
+    /*二维数组*/
+    int arr6[3][4];
+    for(int i = 0; i < 3; ++i)
+    {
+        for(int j = 0; j < 4; ++j)
+        {
+            printf("&arr6[%d][%d] = %p\n", i, j,&arr6[i][j]);
+        }
+    }
+    return 0;
 }
