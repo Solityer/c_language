@@ -14,7 +14,8 @@ struct S1
     char str[10];
 };
 
-int main() {
+int main()
+{
     /* ============================================================ */
     /* 模块一：字符的输入输出函数 (fgetc / fputc)                   */
     /* ============================================================ */
@@ -22,7 +23,7 @@ int main() {
 
     // 1.1 写文件演示 (Write)
     // 必须使用 "w" (write) 模式打开才能写入。注意："w" 会清空原文件内容，若文件不存在则创建。
-    FILE* pf1_write = fopen("..\\data1.txt", "w");
+    FILE *pf1_write = fopen("..\\data1.txt", "w");
     if (pf1_write == NULL)
     {
         perror("fopen data1.txt for write"); // 打印错误详情
@@ -40,7 +41,7 @@ int main() {
 
     // 1.2 读文件演示 (Read)
     // 使用 "r" (read) 模式打开进行读取
-    FILE* pf1 = fopen("..\\data1.txt", "r");
+    FILE *pf1 = fopen("..\\data1.txt", "r");
     if (pf1 == NULL)
     {
         perror("fopen data1.txt for read");
@@ -50,10 +51,14 @@ int main() {
     // fgetc: 从流中读取一个字符，返回字符的ASCII码 (int)，如果失败或结束返回 EOF
     int ch;
     printf("读取前4个字符: \n");
-    ch = fgetc(pf1); printf("%c\n", ch);
-    ch = fgetc(pf1); printf("%c\n", ch);
-    ch = fgetc(pf1); printf("%c\n", ch);
-    ch = fgetc(pf1); printf("%c\n", ch);
+    ch = fgetc(pf1);
+    printf("%c\n", ch);
+    ch = fgetc(pf1);
+    printf("%c\n", ch);
+    ch = fgetc(pf1);
+    printf("%c\n", ch);
+    ch = fgetc(pf1);
+    printf("%c\n", ch);
 
     // 关闭文件
     fclose(pf1);
@@ -66,8 +71,9 @@ int main() {
     printf("\n========== 测试模块二：文本行读写 ==========\n");
 
     // 2.1 准备数据 (通常用于初始化测试文件，此处演示写操作逻辑)
-    FILE* pf2_write = fopen("..\\data2.txt", "w");
-    if (pf2_write != NULL) {
+    FILE *pf2_write = fopen("..\\data2.txt", "w");
+    if (pf2_write != NULL)
+    {
         fputs("hello bit\n", pf2_write);
         fputs("hello solity\n", pf2_write);
         fputs("hello pengzhihao\n", pf2_write);
@@ -75,7 +81,7 @@ int main() {
     }
 
     // 2.2 读文件演示
-    FILE* pf2 = fopen("..\\data2.txt", "r");
+    FILE *pf2 = fopen("..\\data2.txt", "r");
     if (pf2 == NULL)
     {
         perror("fopen data2.txt");
@@ -84,12 +90,15 @@ int main() {
 
     // fgets(buf, n, stream):
     // 读取逻辑: 最多读取 n-1 个字符，或者读到换行符 '\n' 为止 (换行符也会被读入)，末尾自动补 '\0'
-    char arr2[30] = { 0 };
+    char arr2[30] = {0};
 
     printf("逐行读取内容: \n");
-    if (fgets(arr2, 30, pf2) != NULL) printf("%s", arr2); // 第1行
-    if (fgets(arr2, 30, pf2) != NULL) printf("%s", arr2); // 第2行
-    if (fgets(arr2, 30, pf2) != NULL) printf("%s", arr2); // 第3行
+    if (fgets(arr2, 30, pf2) != NULL)
+        printf("%s", arr2); // 第1行
+    if (fgets(arr2, 30, pf2) != NULL)
+        printf("%s", arr2); // 第2行
+    if (fgets(arr2, 30, pf2) != NULL)
+        printf("%s", arr2); // 第3行
 
     fclose(pf2);
     pf2 = NULL;
@@ -101,8 +110,9 @@ int main() {
     printf("\n========== 测试模块三：格式化读写 ==========\n");
 
     // 3.1 写文件 (格式化写入)
-    FILE* pf3_write = fopen("..\\data3.txt", "w");
-    if (pf3_write != NULL) {
+    FILE *pf3_write = fopen("..\\data3.txt", "w");
+    if (pf3_write != NULL)
+    {
         struct S temp_s = {100, 3.14f};
         // fprintf: 类似于 printf，但输出目标是文件流
         fprintf(pf3_write, "%d %f", temp_s.a, temp_s.s);
@@ -110,14 +120,14 @@ int main() {
     }
 
     // 3.2 读文件 (格式化读取)
-    FILE* pf3 = fopen("..\\data3.txt", "r");
+    FILE *pf3 = fopen("..\\data3.txt", "r");
     if (pf3 == NULL)
     {
         perror("fopen data3.txt");
         return 1;
     }
 
-    struct S s = { 0 };
+    struct S s = {0};
     // fscanf: 类似于 scanf，但从文件流中读取
     // 注意: 浮点数在内存中可能存在精度差异
     fscanf(pf3, "%d %f", &(s.a), &(s.s));
@@ -133,9 +143,9 @@ int main() {
     /* ============================================================ */
     printf("\n========== 测试模块四：字符串格式化转换 ==========\n");
 
-    char arr[50] = { 0 }; // 扩大缓冲区防止溢出
-    struct S1 s1 = { 100, 3.14f, "hehe" };
-    struct S1 tmp1 = { 0 };
+    char arr[50] = {0}; // 扩大缓冲区防止溢出
+    struct S1 s1 = {100, 3.14f, "hehe"};
+    struct S1 tmp1 = {0};
 
     // 4.1 sprintf: 将各种类型数据格式化打印到字符串(buffer)中
     // 作用: 将结构体数据序列化为字符串
@@ -154,8 +164,9 @@ int main() {
     printf("\n========== 测试模块五：二进制读写 ==========\n");
 
     // 5.1 写文件 (二进制模式 "wb")
-    FILE* pf4_write = fopen("..\\data4.txt", "wb");
-    if (pf4_write != NULL) {
+    FILE *pf4_write = fopen("..\\data4.txt", "wb");
+    if (pf4_write != NULL)
+    {
         struct S1 s2 = {100, 3.14f, "bit"};
         // fwrite(buffer, size, count, stream)
         // 从 s2 地址开始，写入 1 个大小为 sizeof(struct S1) 的数据块到文件
@@ -164,14 +175,14 @@ int main() {
     }
 
     // 5.2 读文件 (二进制模式 "rb")
-    FILE* pf4 = fopen("..\\data4.txt", "rb");
+    FILE *pf4 = fopen("..\\data4.txt", "rb");
     if (pf4 == NULL)
     {
         perror("fopen data4.txt");
         return 1;
     }
 
-    struct S1 s3 = { 0 };
+    struct S1 s3 = {0};
     // fread(buffer, size, count, stream)
     // 从文件读取 1 个大小为 sizeof(struct S1) 的数据块到 s3
     fread(&s3, sizeof(struct S1), 1, pf4);
@@ -187,13 +198,15 @@ int main() {
     printf("\n========== 测试模块六：文件随机读写 ==========\n");
 
     // 准备测试数据: "abcdef..."
-    FILE* pf5_init = fopen("..\\data5.txt", "w");
-    if (pf5_init != NULL) {
-        for(int i=0; i<26; i++) fputc('a'+i, pf5_init);
+    FILE *pf5_init = fopen("..\\data5.txt", "w");
+    if (pf5_init != NULL)
+    {
+        for (int i = 0; i < 26; i++)
+            fputc('a' + i, pf5_init);
         fclose(pf5_init);
     }
 
-    FILE* pf5 = fopen("..\\data5.txt", "r");
+    FILE *pf5 = fopen("..\\data5.txt", "r");
     if (pf5 == NULL)
     {
         perror("fopen data5.txt");
@@ -219,8 +232,8 @@ int main() {
     // 当前指针在读完 ch2 后自动后移一位。
     // 我们先读两个字符来改变位置，再测试 SEEK_CUR
     rewind(pf5); // 先回到开头 'a'
-    fgetc(pf5);  // 读 'a', 指针->'b'
-    fgetc(pf5);  // 读 'b', 指针->'c'
+    fgetc(pf5); // 读 'a', 指针->'b'
+    fgetc(pf5); // 读 'b', 指针->'c'
     // 此时在 'c' 处。
     fseek(pf5, 3, SEEK_CUR); // 从 'c' 向后跳3个: d, e, f -> 指向 'g'
     int ch4 = fgetc(pf5);
